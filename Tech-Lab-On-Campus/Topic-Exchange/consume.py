@@ -35,5 +35,7 @@ if __name__ == "__main__":
     #
     #                       WRITE CODE HERE!!!
     #
+    sector = input()
+    queue = input()
 
     sys.exit(main(sector,queue))

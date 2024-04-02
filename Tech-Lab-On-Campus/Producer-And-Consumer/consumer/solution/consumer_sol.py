@@ -1,4 +1,4 @@
-from . import mqConsumerInterface
+from consumer_interface import mqConsumerInterface
 import pika
 import os
 
