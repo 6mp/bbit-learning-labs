@@ -23,8 +23,10 @@ def main(sector: str, queueName: str) -> None:
     #
     #                       WRITE CODE HERE!!!
     #
+
+    bindingKey = f"{sector}.*" 
     
-    consumer = mqConsumer(binding_key=bindingKey,exchange_name="Tech Lab Topic Exchange",queue_name=queueName)    
+    consumer = mqConsumer(binding_key=bindingKey,exchange_name="Tech Lab Topic Exchange 3",queue_name=queueName)    
     consumer.startConsuming()
     
 
@@ -35,7 +37,13 @@ if __name__ == "__main__":
     #
     #                       WRITE CODE HERE!!!
     #
-    sector = input()
-    queue = input()
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument("sector", help="sector to consume messages from")
+    parser.add_argument("queueName", help="name of the queue to consume messages from")
+    args = parser.parse_args()
+    sector = args.sector
+    queue = args.queueName
+
 
     sys.exit(main(sector,queue))
